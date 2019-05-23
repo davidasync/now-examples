@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "package.json", "use": "@now/next" },
+      { "src": "server.js", "use": "@now/node-server" }
+    ],
+    "routes": [
+      { "src": "/about", "dest": "/about" },
+      { "src": "/(?<name>[^/]+)$", "dest": "/name/$name" },
+      { "src": "/", "dest": "/" },
+      { "src": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+", "headers": { "cache-control": "immutable,max-age=31536000" } }
+    ]
+  }
